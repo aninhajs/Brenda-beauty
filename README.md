@@ -1,4 +1,4 @@
-# 💅 Agenda Glamour - Sistema de Agendamento para Salão de Beleza
+# 💅 Brenda Beauty - Salão de Beleza
 
 Site profissional e altamente responsivo desenvolvido com HTML5, Tailwind CSS e JavaScript moderno, utilizando GSAP para animações suaves e profissionais.
 
