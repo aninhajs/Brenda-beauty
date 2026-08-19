@@ -730,6 +730,7 @@ button {
   position: relative;
   width: 100%;
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -742,9 +743,10 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  bottom: 0;
   z-index: -1;
-  background-image: url("assets/img/brenda-006.png");
+  background-image: url("../assets/img/brenda-006.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -756,7 +758,9 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  bottom: 0;
+  z-index: -1;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.7) 0%,
@@ -1088,16 +1092,21 @@ button {
   box-sizing: border-box;
   padding: 6rem 0 3rem;
   color: white;
+}
 
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   /* Imagem de fundo — sem fixed para evitar tremor */
-  background-image: url("assets/img/brenda-02.png");
+  background-image: url("../assets/img/brenda-02.png");
   background-size: cover;
   background-position: center top;
   background-attachment: scroll;
 }
 
 /* Overlay escuro com gradiente sobre a imagem */
-.footer-section::before {
+.footer-overlay {
   content: "";
   position: absolute;
   inset: 0;
