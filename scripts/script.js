@@ -581,3 +581,26 @@ function setupTestimonialsCarousel() {
 // Executar inicialização dos depoimentos ao carregar o script
 setupTestimonialsAnimations();
 setupTestimonialsCarousel();
+
+// Animação dos Cards de Fotos de Clientes com GSAP e ScrollTrigger
+gsap.fromTo(
+  ".foto-cliente-card:not(:first-child)",
+  {
+    x: 1000,
+    opacity: 0,
+    rotate: -90,
+  },
+  {
+    x: 0,
+    opacity: 1,
+    rotate: 0,
+    stagger: 1,
+    scrollTrigger: {
+      trigger: ".fotos-clientes-section",
+      pin: ".fotos-clientes-section",
+      scrub: 0.5,
+      start: "top top",
+      end: "bottom top",
+    },
+  },
+);

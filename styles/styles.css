@@ -553,11 +553,12 @@ button {
 /* === SEÇÃO FOTOS DE CLIENTES === */
 .fotos-clientes-section {
   position: relative;
-  padding: 6rem 0;
-  overflow: hidden;
-  overflow-x: clip;
   width: 100%;
-  max-width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   background: linear-gradient(
     180deg,
     var(--gray-900) 0%,
@@ -568,34 +569,27 @@ button {
   border-bottom: 1px solid rgba(199, 162, 132, 0.15);
 }
 
-.fotos-clientes-section .section-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 30%, var(--glamour-brown) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.fotos-clientes-section .section-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-  color: var(--gray-300);
-  text-align: center;
-  max-width: 42rem;
-  margin: 0 auto 3.5rem auto;
-  line-height: 1.6;
-  padding: 0 1rem;
-}
-
-/* Grid de fotos de clientes */
-.fotos-clientes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-  gap: 1.5rem;
+.fotos-clientes-section .container {
   width: 100%;
+  height: 100%;
+  max-width: 100%;
+  padding-inline: 0;
+  margin-inline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fotos-clientes-section .section-title,
+.fotos-clientes-section .section-subtitle {
+  display: none;
+}
+
+/* Container que segura os cards */
+.fotos-clientes-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -603,65 +597,20 @@ button {
   margin: 0;
 }
 
-@media (min-width: 480px) {
-  .fotos-clientes-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .fotos-clientes-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .fotos-clientes-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.75rem;
-  }
-
-  .fotos-clientes-section .container {
-    padding-inline: 1.5rem;
-    max-width: 1280px;
-  }
-
-  .foto-cliente-card {
-    max-width: 100%;
-  }
-}
-
-/* Card individual da foto de cliente */
+/* Card individual da foto de cliente - Empilhado com animação */
 .foto-cliente-card {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 100%;
+  height: 100%;
   box-sizing: border-box;
 
-  position: relative;
-  border-radius: 1rem;
+  border-radius: 0;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(199, 162, 132, 0.25);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  transition:
-    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
-  aspect-ratio: 3 / 4;
-}
-
-.foto-cliente-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--glamour-brown);
-  box-shadow:
-    0 25px 45px rgba(199, 162, 132, 0.25),
-    0 0 25px rgba(199, 162, 132, 0.15);
+  border: none;
+  box-shadow: none;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -671,7 +620,6 @@ button {
 .foto-cliente-card img {
   width: 100%;
   max-width: 100%;
-  /* height: auto; */
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -679,48 +627,17 @@ button {
   box-sizing: border-box;
 }
 
-.foto-cliente-card:hover img {
-  transform: scale(1.08);
-  transition: transform 0.5s ease;
-}
-
-.foto-cliente-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(17, 24, 39, 0.4) 0%,
-    transparent 60%
-  );
-  opacity: 0.6;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.foto-cliente-card:hover::after {
-  opacity: 0.2;
-}
-
 /* Ajustes mobile */
 @media (max-width: 768px) {
   .fotos-clientes-section {
-    padding: 4rem 0;
-  }
-
-  .fotos-clientes-section .section-subtitle {
-    margin-bottom: 2.5rem;
+    height: 100vh;
   }
 }
 
-/* Ajustes para telas extra grandes - previne overflow */
+/* Ajustes para telas extra grandes */
 @media (min-width: 1280px) {
-  .fotos-clientes-section .container {
-    padding-inline: 2rem;
-  }
-
-  .fotos-clientes-grid {
-    gap: 1.5rem;
+  .fotos-clientes-section {
+    height: 100vh;
   }
 }
 
