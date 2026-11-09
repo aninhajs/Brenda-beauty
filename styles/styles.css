@@ -573,23 +573,46 @@ button {
   width: 100%;
   height: 100%;
   max-width: 100%;
-  padding-inline: 0;
+  box-sizing: border-box;
+  padding: 1.5rem 0 0;
   margin-inline: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
 }
 
 .fotos-clientes-section .section-title,
 .fotos-clientes-section .section-subtitle {
-  display: none;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.fotos-clientes-section .section-title {
+  color: white;
+  font-size: clamp(1.875rem, 5vw, 2.25rem);
+  font-weight: 700;
+}
+
+.fotos-clientes-section .section-subtitle {
+  max-width: 42rem;
+  padding-inline: 1rem;
+  color: var(--gray-200);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
 }
 
 /* Container que segura os cards */
 .fotos-clientes-grid {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 0;
+  flex: 1 1 0;
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -1068,7 +1091,7 @@ button {
 /* --- Grid de cards --- */
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
   margin-bottom: 3.5rem;
 }
@@ -1080,14 +1103,14 @@ button {
 
 @media (min-width: 640px) {
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 }
 
 @media (min-width: 900px) {
   .footer-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
   }
 }
@@ -1242,7 +1265,7 @@ button {
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
   }
 
@@ -1259,7 +1282,7 @@ button {
 
 @media (max-width: 400px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
@@ -1984,6 +2007,10 @@ button {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .servicos-section h2,
