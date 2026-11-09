@@ -54,42 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===================================
-// SERVICE IMAGE PREVIEW
-// ===================================
-const serviceImageDialog = document.querySelector(".service-image-dialog");
-const expandedServiceImage = serviceImageDialog.querySelector("img");
-
-document.querySelectorAll(".service-card > img").forEach((image) => {
-  image.tabIndex = 0;
-  image.setAttribute("role", "button");
-  image.setAttribute("aria-haspopup", "dialog");
-
-  const openImage = () => {
-    expandedServiceImage.src = image.currentSrc || image.src;
-    expandedServiceImage.alt = image.alt;
-    serviceImageDialog.showModal();
-  };
-
-  image.addEventListener("click", openImage);
-  image.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openImage();
-    }
-  });
-});
-
-serviceImageDialog
-  .querySelector(".service-image-dialog-close")
-  .addEventListener("click", () => serviceImageDialog.close());
-
-serviceImageDialog.addEventListener("click", (event) => {
-  if (event.target === serviceImageDialog) {
-    serviceImageDialog.close();
-  }
-});
-
-// ===================================
 // MOBILE MENU TOGGLE
 // ===================================
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
