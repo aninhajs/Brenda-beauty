@@ -153,65 +153,6 @@ window.addEventListener("DOMContentLoaded", () => {
 // ===================================
 
 // ===================================
-// SOBRE SECTION ANIMATIONS
-// ===================================
-// Animação do título
-gsap.from(".sobre-title", {
-  autoAlpha: 0,
-  x: -100,
-  duration: 1.2,
-  ease: "power3.out",
-  scrollTrigger: {
-    trigger: ".sobre-title",
-    start: "top center+=100",
-    toggleActions: "play none none reverse",
-  },
-});
-
-// Animação dos parágrafos
-gsap.from(".sobre-content p", {
-  autoAlpha: 0,
-  y: 30,
-  duration: 0.8,
-  stagger: 0.2,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".sobre-content",
-    start: "top center+=150",
-    toggleActions: "play none none reverse",
-  },
-});
-
-// Animação das estatísticas
-gsap.utils.toArray(".stat-item").forEach((stat, index) => {
-  gsap.from(stat, {
-    autoAlpha: 0,
-    scale: 0.5,
-    duration: 0.6,
-    ease: "back.out(1.7)",
-    delay: index * 0.15,
-    scrollTrigger: {
-      trigger: ".stats-grid",
-      start: "top center+=100",
-      toggleActions: "play none none reverse",
-    },
-  });
-});
-
-// Animação do botão CTA
-gsap.from(".sobre-content .cta-primary", {
-  autoAlpha: 0,
-  y: 30,
-  duration: 0.8,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".sobre-content .cta-primary",
-    start: "top center+=150",
-    toggleActions: "play none none reverse",
-  },
-});
-
-// ===================================
 // SECTION HEADER SPLIT TEXT ANIMATION
 // ===================================
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -222,6 +163,65 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // Registra o plugin ScrollTrigger no GSAP
   gsap.registerPlugin(ScrollTrigger);
+
+  // ===================================
+  // SOBRE SECTION ANIMATIONS
+  // ===================================
+  // Animação do título
+  gsap.from(".sobre-title", {
+    autoAlpha: 0,
+    x: -100,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".sobre-title",
+      start: "top center+=100",
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  // Animação dos parágrafos
+  gsap.from(".sobre-content p", {
+    autoAlpha: 0,
+    y: 30,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".sobre-content",
+      start: "top center+=150",
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  // Animação das estatísticas
+  gsap.utils.toArray(".stat-item").forEach((stat, index) => {
+    gsap.from(stat, {
+      autoAlpha: 0,
+      scale: 0.5,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+      delay: index * 0.15,
+      scrollTrigger: {
+        trigger: ".stats-grid",
+        start: "top center+=100",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+
+  // Animação do botão CTA
+  gsap.from(".sobre-content .cta-primary", {
+    autoAlpha: 0,
+    y: 30,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".sobre-content .cta-primary",
+      start: "top center+=150",
+      toggleActions: "play none none reverse",
+    },
+  });
 
   // 1. Divide o texto em letras usando a biblioteca SplitType
   const meuTexto = new SplitType(".split-text", { types: "chars" });
