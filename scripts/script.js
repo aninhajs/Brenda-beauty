@@ -604,3 +604,55 @@ gsap.fromTo(
     },
   },
 );
+
+  // ===================================
+  // SERVICE IMAGE MODAL
+  // ===================================
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("service-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalDescription = document.getElementById("modal-description");
+    const modalClose = document.querySelector(".modal-close");
+    const serviceImages = document.querySelectorAll(".service-image");
+
+    // Open modal when clicking on service image
+    serviceImages.forEach((img) => {
+      img.addEventListener("click", () => {
+        const src = img.getAttribute("src");
+        const description = img.getAttribute("data-description");
+
+        modalImage.setAttribute("src", src);
+        modalDescription.textContent = description;
+        modal.classList.add("active");
+
+        // Recreate icons inside the modal
+        lucide.createIcons();
+
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // Close modal when clicking close button
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+
+    // Close modal when clicking outside the content
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+
+    // Close modal when pressing Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+  });

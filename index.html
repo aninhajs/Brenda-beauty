@@ -104,8 +104,10 @@
           <!-- Card 1 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/corte-feminino.webp"
               alt="Cortes de Cabelo"
+              data-description="Cortes modernos e personalizados que valorizam seu estilo único com técnicas profissionais."
             />
             <div class="service-content">
               <h3>
@@ -122,8 +124,10 @@
           <!-- Card 2 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/coloracao-cabelo.webp"
               alt="Coloração"
+              data-description="Coloração profissional com produtos de alta qualidade para resultados incríveis e duradouros."
             />
             <div class="service-content">
               <h3>
@@ -140,8 +144,10 @@
           <!-- Card 3 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/hidratacao-cabelo.webp"
               alt="Hidratação"
+              data-description="Tratamentos intensivos de hidratação para cabelos saudáveis, brilhantes e revitalizados."
             />
             <div class="service-content">
               <h3>
@@ -158,8 +164,10 @@
           <!-- Card 4 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/alisamento-cabelo.webp"
-              alt="Penteados"
+              alt="Alisamento"
+              data-description="Alisamentos com produtos de alta qualidade para resultados incríveis e duradouros."
             />
             <div class="service-content">
               <h3>
@@ -176,8 +184,10 @@
           <!-- Card 5 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/mexas-cabelo.webp"
-              alt="Manicure & Pedicure"
+              alt="Mechas"
+              data-description="Mechas com produtos de alta qualidade para resultados incríveis e duradouros."
             />
             <div class="service-content">
               <h3>
@@ -194,8 +204,10 @@
           <!-- Card 6 -->
           <div class="service-card">
             <img
+              class="service-image"
               src="assets/img-servicos/sobrancelhas.webp"
               alt="Desing Sobrancelhas"
+              data-description="Desing de sobrancelhas com produtos de alta qualidade para resultados incríveis e duradouros."
             />
             <div class="service-content">
               <h3>
@@ -560,6 +572,17 @@
     >
       <i data-lucide="message-circle"></i>
     </a>
+
+    <!-- Modal para Expandir Imagens de Serviços -->
+    <div id="service-modal" class="service-modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Fechar modal">
+          <i data-lucide="x"></i>
+        </button>
+        <img id="modal-image" src="" alt="Serviço expandido" />
+        <p id="modal-description" class="modal-description"></p>
+      </div>
+    </div>
 
     <!-- GSAP Core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
